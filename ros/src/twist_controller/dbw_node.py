@@ -60,14 +60,15 @@ class DBWNode(object):
                                      decel_limit = decel_limit,
                                      accel_limit = accel_limit,
                                      wheel_radius = wheel_radius,
+                                     wheel_base=wheel_base,
                                      steer_ratio = steer_ratio,
                                      max_lat_accel = max_lat_accel,
                                      max_steer_angle = max_steer_angle)
 
         # TODO: Subscribe to all the topics you need to
-        rospy.Subcribe('/vehicle/dbw_enable', Bool, self.dbw_enable_cb)
-        rospy.Subcribe('/twist_cmd', TwistStamped, self.twist_cb)
-        rospy.Subcribe('/current_velocity', TwistStamped, self.velocity_cb)
+        rospy.Subscriber('/vehicle/dbw_enable', Bool, self.db_enable_cb)
+        rospy.Subscriber('/twist_cmd', TwistStamped, self.twist_cb)
+        rospy.Subscriber('/current_velocity', TwistStamped, self.velocity_cb)
         
         self.current_vel = None
         self.current_ang_vel = None
@@ -88,10 +89,19 @@ class DBWNode(object):
                                                                 self.linear_vel,
                                                                 self.angular_vel)
             if self.dbw_enable:
-               self.publish(self.throttle, self.brake, self.steering)
-               
+               self.publish(self.throttle, self.brake, self.steering)               
             rate.sleep()
+    
+    def db_enable_cb(self, mgs):
+        self.dbw_enable = mgs
+        
+    def twist_cb(self, msg):
+        self.linear_vel = msg.twist.linear.x
+        self.angular_vel = msg.twist.angular.z
 
+    def velocity_cb(self, msg):
+        self.current_vel = msg.twist.linear.x
+        
     def publish(self, throttle, brake, steer):
         tcmd = ThrottleCmd()
         tcmd.enable = True
