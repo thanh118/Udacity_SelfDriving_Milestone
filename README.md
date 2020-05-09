@@ -23,9 +23,7 @@ roslaunch launch/styx.launch
 
 ### Carla Architecture
 Carla is the custom Lincoln MKZ that Udacity has converted into a self-driving car.  It's self-driving system is broken down into four major sub-systems: **Sensors**, **Perception**, **Planning** and **Control** 
-
-![][image1]
-
+<img src="imgs/carla_architecture.png" width="480" alt="Combined Image" />
 #### Sensors
 Includes everything needed to understand its surroundings and location including **cameras**, **lidar**, **GPS**, **radar**, and **IMU**
 #### Perception

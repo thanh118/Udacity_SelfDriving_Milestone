@@ -16,7 +16,7 @@ class TLClassifier(object):
         model_path = os.path.join(cwd, "train_model/{}".format(model_file))
         rospy.logwarn("model_path={}".format(model_path))
 
-        # load frozen tensorflow model
+        # load tensorflow model
         self.detection_graph = tf.Graph()
         with self.detection_graph.as_default():
             od_graph_def = tf.GraphDef()

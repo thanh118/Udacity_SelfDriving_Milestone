@@ -18,7 +18,7 @@ STATE_COUNT_THRESHOLD = 3
 # False for Model Prediction Traffic Data
 TEST_MODE_ENABLED = False
 SAVE_IMAGES = False
-LOGGING_THROTTLE_FACTOR = 5  # Only log at this rate (1 / Hz)
+LOGGING_THROTTLE_FACTOR = 5  
 
 
 class TLDetector(object):
