@@ -82,25 +82,16 @@ The third node written by us is the dbw_node which is responsible for steering t
 #### Model
 The traffic light classification model is based on the pre-trained on the COCO dataset model "faster_rcnn_resnet101_coco" from [Tensorflow detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md). Using the [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection), the simulator data model and real data model were trained. 
 
-The models are available in the `ros/src/tl_detector/light_classification/train_model` directory or [here](https://drive.google.com/drive/folders/1kDGoZ02HkhLnar40DAGfSBonTTz7LKAg?usp=sharing). 
-
-#### Dataset
-Step-by-step [Tensorflow Object Detection API tutorial](https://medium.com/@WuStangDan/step-by-step-tensorflow-object-detection-api-tutorial-part-1-selecting-a-model-a02b6aabe39e) was a good guide of using the Tensorflow object detection API for traffic light classification. 
-
-The simulator dataset was from [here](https://drive.google.com/file/d/0Bw5abyXVejvMci03bFRueWVXX1U), and the real dataset was from [here](https://drive.google.com/file/d/0B-Eiyn-CUQtxdUZWMkFfQzdObUE).
+The models are available in the `ros/src/tes_model`. 
 
 #### Classification
 The classification output has four categories: Red, Green, Yellow and off. To simplify, the final output will be Red or Non-Red, that is only the Red will be classified as `TrafficLight.RED`, and the other cases will be classified as `TrafficLight.GREEN`.
 
 ## Results
 
-After getting the program  working, the walkthrough videos were then posted to the Udacity project page.  As they had a much more elegant approach to implementing the nodes, there was a re-write effort to conform to the walkthrough approach rather than the teams originally conceived method.
-
-[Here][video2] is a sample video of the test track running.
-
-One of the hardest tasks for this project was getting the environment setup. Apple products are essentially not supported and any computer without a very powerful GPU is incapable of running the network while the simulator is simulatenously running.
-
-Our team was also puzzled by how the vehicle should interact and  maneuver within the test lot in order to complete the project.  The test track for our team is straight-forward in execution as there are standard rules of the road that must be followed to successfully traverse the track.  There are also, generally speaking, standardized maneuvers to perform on the road that lead to easy vehicle behavior trajectories on the test track.  On the other hand the test lot is troublesome and quirky because of the lack of standarized rules of road, and a lack of standardized maneuvers to perform within the test lot.
-
-Overall, this was a challenging and rewarding project, both technically and socially.  The use of ROS within a small team, each member of which was located in different part of the world, presented unique opportunities for learning and growth.
+* Smoothly follows waypoints in the simulator.
+* Stops at traffic lights when needed.
+* Stops and restarts PID controllers depending on the state of /vehicle/dbw_enabled.
+* Publishes throttle, steering, and brake commands at 50hz.
+* Launches correctly using the launch files provided in the capstone repo.
   
