@@ -2,7 +2,7 @@
 
 1. Clone the project repository
 ```bash
-git clone https://github.com/udacity/CarND-Capstone.git
+git clone https://github.com/thanh118/Udacity_SelfDriving_Milestone.git
 ```
 
 2. Install python dependencies
