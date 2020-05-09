@@ -23,7 +23,7 @@ roslaunch launch/styx.launch
 
 ### Carla Architecture
 Carla is the custom Lincoln MKZ that Udacity has converted into a self-driving car.  It's self-driving system is broken down into four major sub-systems: **Sensors**, **Perception**, **Planning** and **Control** 
-<img src="imgs/carla_architecture.png" width="480" alt="Combined Image" />
+<img src="imgs/carla_architecture.png" width="600" alt="Combined Image" />
 #### Sensors
 Includes everything needed to understand its surroundings and location including **cameras**, **lidar**, **GPS**, **radar**, and **IMU**
 #### Perception
@@ -53,7 +53,7 @@ The control component takes trajectory outputs and processes them with a control
 
 The ROS Architecture consists of different nodes (written in Python or C++) that communicate with each other via ROS messages. The nodes and their communication with each other are depicted in the picture below. The ovally outlined text boxes inside rectangular boxes represent the ROS nodes while the simple rectangular boxes represent the topics that are subscribed or published to. The direction of the arrows clarifies the respective flow of communication. 
 
-![][image2]
+<img src="imgs/Capture.png" width="600" alt="Combined Image" />
 
 The most central point in the rqt-graph is the styx_server that links the simulator and ROS by providing information about the car's state and surroundings (car's current position, velocity and images of the front camera) and receiving control input (steering, braking, throttle). The other nodes can be associated with the three central tasks Perception, Planning and Control. 
 
@@ -63,7 +63,7 @@ With the subscribed information of the traffic light detector and the the subscr
 
 ### Node Design
 
-![][image3]
+<img src="imgs/system_architecture.png" width="600" alt="Combined Image" />
 
 In this paragraph it will be talked about the node design of those nodes that are built within this project. Those are the waypoint updater(waypoint_updater.py), the traffic light detector (tl_detector.py) and the drive by wire node (dbw_node.py). 
 
@@ -91,20 +91,6 @@ The simulator dataset was from [here](https://drive.google.com/file/d/0Bw5abyXVe
 
 #### Classification
 The classification output has four categories: Red, Green, Yellow and off. To simplify, the final output will be Red or Non-Red, that is only the Red will be classified as `TrafficLight.RED`, and the other cases will be classified as `TrafficLight.GREEN`.
-
-#### Examples of Simulator Testing Results:
-
-![sim_red](https://user-images.githubusercontent.com/12635332/39411764-80e4135a-4bc5-11e8-90de-be830ed9ffcb.png)
-![sim_green](https://user-images.githubusercontent.com/12635332/39411770-96841c50-4bc5-11e8-8ffb-bd41fb549881.png)
-![sim-yellow](https://user-images.githubusercontent.com/12635332/39411774-9f08b6c4-4bc5-11e8-8921-3fefcad68e04.png)
-![sim_none](https://user-images.githubusercontent.com/12635332/39411776-a7a32d78-4bc5-11e8-8034-bbc0066d8b30.png)
-
-#### Examples of Real Testing Results:
-
-![real_red](https://user-images.githubusercontent.com/12635332/39411790-e24bf022-4bc5-11e8-95b2-55a7fd07ddf5.png)
-![real_green](https://user-images.githubusercontent.com/12635332/39411788-d874bbb0-4bc5-11e8-866f-1496f7f47596.png)
-![real_yellow](https://user-images.githubusercontent.com/12635332/39412245-4e0ad37a-4bce-11e8-9312-7f727d085676.png)
-![real_none](https://user-images.githubusercontent.com/12635332/39412259-8b125892-4bce-11e8-9e59-64a689a7eb99.png)
 
 ## Results
 
