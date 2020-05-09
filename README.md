@@ -23,7 +23,7 @@ roslaunch launch/styx.launch
 
 ### Carla Architecture
 Carla is the custom Lincoln MKZ that Udacity has converted into a self-driving car.  It's self-driving system is broken down into four major sub-systems: **Sensors**, **Perception**, **Planning** and **Control** 
-<img src="imgs/carla_architecture.png" width="600" alt="Combined Image" />
+<img src="imgs/carla_architecture.png" width="800" alt="Combined Image" />
 #### Sensors
 Includes everything needed to understand its surroundings and location including **cameras**, **lidar**, **GPS**, **radar**, and **IMU**
 #### Perception
@@ -53,7 +53,7 @@ The control component takes trajectory outputs and processes them with a control
 
 The ROS Architecture consists of different nodes (written in Python or C++) that communicate with each other via ROS messages. The nodes and their communication with each other are depicted in the picture below. The ovally outlined text boxes inside rectangular boxes represent the ROS nodes while the simple rectangular boxes represent the topics that are subscribed or published to. The direction of the arrows clarifies the respective flow of communication. 
 
-<img src="imgs/Capture.png" width="600" alt="Combined Image" />
+<img src="imgs/Capture.PNG" width="800" alt="Combined Image" />
 
 The most central point in the rqt-graph is the styx_server that links the simulator and ROS by providing information about the car's state and surroundings (car's current position, velocity and images of the front camera) and receiving control input (steering, braking, throttle). The other nodes can be associated with the three central tasks Perception, Planning and Control. 
 
@@ -63,7 +63,7 @@ With the subscribed information of the traffic light detector and the the subscr
 
 ### Node Design
 
-<img src="imgs/system_architecture.png" width="600" alt="Combined Image" />
+<img src="imgs/system_architecture.png" width="800" alt="Combined Image" />
 
 In this paragraph it will be talked about the node design of those nodes that are built within this project. Those are the waypoint updater(waypoint_updater.py), the traffic light detector (tl_detector.py) and the drive by wire node (dbw_node.py). 
 
